@@ -58,6 +58,12 @@ class User extends \Mim\Service
         return null;
     }
 
+    public function getSession(): ?object{
+        if($this->authorizer)
+            return $this->authorizer::getSession();
+        return null;
+    }
+
     public function hashPassword(string $password): ?string {
         if($this->handler)
             return $this->handler::hashPassword($password);
