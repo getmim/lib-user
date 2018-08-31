@@ -20,7 +20,8 @@ return [
                 'lib-user-main' => NULL
             ],
             [
-                'lib-user-auth-cookie' => NULL
+                'lib-user-auth-cookie' => NULL,
+                'lib-user-auth-basic' => NULL
             ]
         ]
     ],
