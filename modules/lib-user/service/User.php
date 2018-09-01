@@ -36,14 +36,16 @@ class User extends \Mim\Service
                 $this->_user = $user;
             break;
         }
-
-        return true;
     }
 
     public function __get($name) {
         if(!$this->_user)
             return null;
         return $this->_user->$name ?? null;
+    }
+
+    public function getAuthorizer(): ?string{
+        return $this->authorizer;
     }
 
     public function getByCredentials(string $identity, string $password): ?object {

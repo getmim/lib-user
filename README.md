@@ -2,7 +2,9 @@
 
 Adalah module dasar penyedia user pada aplikasi berbasis mim. Module ini tidak
 bisa berdiri sendiri, dibutuhkan module user handler yang bertugas berhubungan
-langsung dengan penyedia data user seperti `lib-user-main`.
+langsung dengan penyedia data user seperti `lib-user-main`, dan module authorizer
+yang memparse request untuk menemukan informasi user yang melakukan request seperti
+module `lib-user-auth-cookie`.
 
 ## Instalasi
 
@@ -30,6 +32,7 @@ aplikasi dengan perintah `$this->user->{method|property}`.
 
 Service user memilki beberapa method sebagai berikut:
 
+### getAuthorizer(): ?string
 ### getByCredentials(string $identity, string $password): ?object
 ### getById(string $identity): ?object
 ### getSession(): ?object
