@@ -21,7 +21,9 @@ return [
             ],
             [
                 'lib-user-auth-cookie' => NULL,
-                'lib-user-auth-basic' => NULL
+                'lib-user-auth-basic'  => NULL,
+                'lib-user-auth-oauth'  => NULL,
+                'lib-user-auth-jwt'    => NULL
             ]
         ]
     ],
