@@ -28,9 +28,11 @@ class User extends \Mim\Service
         
         foreach($authorizers as $name => $class){
             $identity = $class::identify();
-            if(!$identity)
+            if(!$class::getSession())
                 continue;
             $this->authorizer = $class;
+            if(!$identity)
+                break;
             $user = $this->handler::getById($identity);
             if($user)
                 $this->_user = $user;
