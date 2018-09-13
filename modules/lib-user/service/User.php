@@ -68,6 +68,10 @@ class User extends \Mim\Service
         return null;
     }
 
+    public function getUser(): ?object{
+        return $this->_user;
+    }
+
     public function hashPassword(string $password): ?string {
         if($this->handler)
             return $this->handler::hashPassword($password);
