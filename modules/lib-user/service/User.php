@@ -62,6 +62,12 @@ class User extends \Mim\Service
         return null;
     }
 
+    public function getHandler(): ?string{
+        if($this->handler)
+            return $this->handler;
+        return null;
+    }
+
     public function getSession(): ?object{
         if($this->authorizer)
             return $this->authorizer::getSession();

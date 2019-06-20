@@ -35,6 +35,7 @@ Service user memilki beberapa method sebagai berikut:
 ### getAuthorizer(): ?string
 ### getByCredentials(string $identity, string $password): ?object
 ### getById(string $identity): ?object
+### getHandler(): ?string
 ### getSession(): ?object
 ### hashPassword(string $password): ?string
 ### isLogin(): bool
@@ -94,6 +95,14 @@ status | description
 1      | Suspended
 2      | Unverified
 3      | Verified
+
+### getMany(array $where): ?array
+
+Mengambil beberapa user dengan kondisi wheer sama persis dengan kondisi where model.
+
+### getOne(array $where): ?object
+
+Mengambil satu user dengan kondisi where sama persis dengan kondisi where model.
 
 ### hashPassword(string $password): ?string
 
