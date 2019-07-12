@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-user',
-    '__version' => '0.0.2',
+    '__version' => '0.0.3',
     '__git' => 'git@github.com:getmim/lib-user.git',
     '__license' => 'MIT',
     '__author' => [
@@ -57,11 +57,13 @@ return [
         'user' => 'LibUser\\Service\\User'
     ],
     'libEnum' => [
-        'user.status' => [
-            'Deleted',
-            'Suspended',
-            'Unverified',
-            'Verified'
+        'enums' => [
+            'user.status' => [
+                'Deleted',
+                'Suspended',
+                'Unverified',
+                'Verified'
+            ]
         ]
     ],
     'libFormatter' => [
