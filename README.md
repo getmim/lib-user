@@ -82,7 +82,8 @@ $user = (object)[
     'fullname' => ::string,
     'password' => ::string,
     'avatar' => ::string,
-    'status' => ::int
+    'status' => ::int,
+    'timezone' => ::string,
     'created' => ::string(Y-m-d H:i:s)
 ];
 ```
@@ -95,6 +96,8 @@ status | description
 1      | Suspended
 2      | Unverified
 3      | Verified
+
+Jika properti `timezone` di-set, maka system timezone akan disesuaikan dengan nilai tersebut.
 
 ### getMany(array $where): ?array
 
@@ -145,9 +148,9 @@ ini mengembalikan informasi sebagai berikut:
 
 ```php
 $session = (object)[
-    'type' => 'cookie',
-    'expires' => time() + 60,
-    'token' => 'random-string'
+    'type'      => 'cookie',
+    'expires'   => time() + 60,
+    'token'     => 'random-string'
 ];
 ```
 

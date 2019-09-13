@@ -38,6 +38,12 @@ class User extends \Mim\Service
                 $this->_user = $user;
             break;
         }
+
+        // set timezone if defined
+        if($this->_user && isset($this->_user->timezone)){
+            if(in_array($this->_user->timezone, \DateTimeZone::listIdentifiers()))
+                date_default_timezone_set($this->_user->timezone);
+        }
     }
 
     public function __get($name) {
