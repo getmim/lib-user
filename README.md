@@ -35,6 +35,7 @@ Service user memilki beberapa method sebagai berikut:
 ### getAuthorizer(): ?string
 ### getByCredentials(string $identity, string $password): ?object
 ### getById(string $identity): ?object
+### getHandler(): ?string
 ### getSession(): ?object
 ### getUser(): ?object
 ### hashPassword(string $password): ?string
@@ -82,7 +83,8 @@ $user = (object)[
     'fullname' => ::string,
     'password' => ::string,
     'avatar' => ::string,
-    'status' => ::int
+    'status' => ::int,
+    'timezone' => ::string,
     'created' => ::string(Y-m-d H:i:s)
 ];
 ```
@@ -95,6 +97,16 @@ status | description
 1      | Suspended
 2      | Unverified
 3      | Verified
+
+Jika properti `timezone` di-set, maka system timezone akan disesuaikan dengan nilai tersebut.
+
+### getMany(array $where): ?array
+
+Mengambil beberapa user dengan kondisi wheer sama persis dengan kondisi where model.
+
+### getOne(array $where): ?object
+
+Mengambil satu user dengan kondisi where sama persis dengan kondisi where model.
 
 ### hashPassword(string $password): ?string
 
@@ -137,9 +149,9 @@ ini mengembalikan informasi sebagai berikut:
 
 ```php
 $session = (object)[
-    'type' => 'cookie',
-    'expires' => time() + 60,
-    'token' => 'random-string'
+    'type'      => 'cookie',
+    'expires'   => time() + 60,
+    'token'     => 'random-string'
 ];
 ```
 

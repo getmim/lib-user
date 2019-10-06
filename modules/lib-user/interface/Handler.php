@@ -14,6 +14,10 @@ interface Handler
 
     static function getById(string $identity): ?object;
 
+    static function getMany(array $where): ?array;
+    
+    static function getOne(array $where): ?object;
+
     static function hashPassword(string $password): ?string;
 
     static function verifyPassword(string $password, object $user): bool;

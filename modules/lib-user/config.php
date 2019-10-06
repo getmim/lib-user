@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-user',
-    '__version' => '0.0.1',
+    '__version' => '0.0.4',
     '__git' => 'git@github.com:getmim/lib-user.git',
     '__license' => 'MIT',
     '__author' => [
@@ -14,7 +14,11 @@ return [
         'modules/lib-user' => ['install','update','remove']
     ],
     '__dependencies' => [
-        'required' => [],
+        'required' => [
+            [
+                'lib-enum' => NULL
+            ]
+        ],
         'optional' => [
             [
                 'lib-user-main' => NULL
@@ -37,6 +41,10 @@ return [
             'LibUser\\Service' => [
                 'type' => 'file',
                 'base' => 'modules/lib-user/service'
+            ],
+            'LibUser\\Library' => [
+                'type' => 'file',
+                'base' => 'modules/lib-user/library'
             ]
         ],
         'files' => []
@@ -47,5 +55,40 @@ return [
     ],
     'service' => [
         'user' => 'LibUser\\Service\\User'
+    ],
+    'libEnum' => [
+        'enums' => [
+            'user.status' => [
+                'Deleted',
+                'Suspended',
+                'Unverified',
+                'Verified'
+            ]
+        ]
+    ],
+    'libFormatter' => [
+        'formats' => [
+            'user' => [
+                'id' => [
+                    'type' => 'number'
+                ],
+                'name' => [
+                    'type' => 'text'
+                ],
+                'fullname' => [
+                    'type' => 'text'
+                ],
+                'password' => [
+                    'type' => 'delete'
+                ],
+                'status' => [
+                    'type' => 'enum',
+                    'enum' => 'user.status'
+                ],
+                'created' => [
+                    'type' => 'date'
+                ]
+            ]
+        ]
     ]
 ];
