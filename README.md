@@ -36,6 +36,7 @@ Service user memilki beberapa method sebagai berikut:
 ### getByCredentials(string $identity, string $password): ?object
 ### getById(string $identity): ?object
 ### getSession(): ?object
+### getUser(): ?object
 ### hashPassword(string $password): ?string
 ### isLogin(): bool
 ### logout(): void
