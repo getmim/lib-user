@@ -22,4 +22,11 @@ class Fetcher
             return null;
         return $handler::getOne($where);
     }
+
+    static function set(array $fields, array $where=[]): bool{
+        $handler = \Mim::$app->user->getHandler();
+        if(!$handler)
+            return false;
+        return $handler::set($fields, $where);
+    }
 }
