@@ -20,6 +20,8 @@ interface Handler
 
     static function hashPassword(string $password): ?string;
 
+    static function lastError();
+
     static function verifyPassword(string $password, object $user): bool;
 
     static function set(array $fields, array $where=[]): bool;

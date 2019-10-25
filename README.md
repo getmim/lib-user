@@ -116,6 +116,10 @@ Meng-hash password user.
 
 Mencoba kecocokan password yang di post user dengan password user yang asli.
 
+### set(array $fields, array $where=[]): bool
+
+Mengubah data user dengan kondisi where sama persis dengan kondisi where model.
+
 ## Custom Authorizer
 
 Selain user provider, module ini juga membutuhkan module tambahan yang bertugas

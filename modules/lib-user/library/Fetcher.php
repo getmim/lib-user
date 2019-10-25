@@ -29,4 +29,11 @@ class Fetcher
             return false;
         return $handler::set($fields, $where);
     }
+
+    static function lastError(){
+        $handler = \Mim::$app->user->getHandler();
+        if(!$handler)
+            return false;
+        return $handler::lastError();
+    }
 }

@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-user',
-    '__version' => '0.1.0',
+    '__version' => '0.1.1',
     '__git' => 'git@github.com:getmim/lib-user.git',
     '__license' => 'MIT',
     '__author' => [
@@ -83,7 +83,8 @@ return [
                 ],
                 'status' => [
                     'type' => 'enum',
-                    'enum' => 'user.status'
+                    'enum' => 'user.status',
+                    'vtype' => 'int'
                 ],
                 'created' => [
                     'type' => 'date'
