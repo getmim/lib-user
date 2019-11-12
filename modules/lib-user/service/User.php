@@ -56,8 +56,10 @@ class User extends \Mim\Service
             }
 
             // set locale
-            if(isset($this->_user->language) && module_exists('lib-locale'))
+            if(isset($this->_user->language) && module_exists('lib-locale')){
+                $this->_locale = $this->_user->language;
                 \LibLocale\Library\Locale::setLocale($this->_user->language);
+            }
         }
     }
 
