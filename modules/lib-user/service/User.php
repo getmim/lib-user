@@ -13,8 +13,17 @@ class User extends \Mim\Service
     private $authorizer;
     private $handler;
     private $_user;
+    private $_locale = 'en-US';
 
     public function __construct(){
+        $languages = \Mim::$app->req->accept->language;
+        foreach($languages as $lang){
+            if(preg_match('![a-z]{2}-[A-Z]{2}!', $lang)){
+                $this->_locale = $lang;
+                break;
+            }
+        }
+
         // find the handler
         $config = \Mim::$app->config->libUser;
         $handler = $config->handler;
@@ -39,10 +48,16 @@ class User extends \Mim\Service
             break;
         }
 
-        // set timezone if defined
-        if($this->_user && isset($this->_user->timezone)){
-            if(in_array($this->_user->timezone, \DateTimeZone::listIdentifiers()))
-                date_default_timezone_set($this->_user->timezone);
+        if($this->_user){
+            // set timezone if defined
+            if(isset($this->_user->timezone)){
+                if(in_array($this->_user->timezone, \DateTimeZone::listIdentifiers()))
+                    date_default_timezone_set($this->_user->timezone);
+            }
+
+            // set locale
+            if(isset($this->_user->language) && module_exists('lib-locale'))
+                \LibLocale\Library\Locale::setLocale($this->_user->language);
         }
     }
 
@@ -72,6 +87,10 @@ class User extends \Mim\Service
         if($this->handler)
             return $this->handler;
         return null;
+    }
+
+    public function getLocale(): string{
+        return $this->_locale;
     }
 
     public function getSession(): ?object{
