@@ -10,6 +10,8 @@ namespace LibUser\Iface;
 interface Handler
 {
 
+    static function count(array $where=[]): int;
+    
     static function getByCredentials(string $identity, string $password): ?object;
 
     static function getById(string $identity): ?object;
