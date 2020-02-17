@@ -9,6 +9,13 @@ namespace LibUser\Library;
 
 class Fetcher
 {
+    static function count(array $where=[]): ?int{
+        $handler = \Mim::$app->user->getHandler();
+        if(!$handler)
+            return null;
+        return $handler::count($where);
+    }
+
     static function get($where): ?array{
         $handler = \Mim::$app->user->getHandler();
         if(!$handler)
