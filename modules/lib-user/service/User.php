@@ -73,9 +73,9 @@ class User extends \Mim\Service
         return $this->authorizer;
     }
 
-    public function getByCredentials(string $identity, string $password): ?object {
+    public function getByCredentials(string $identity, string $password, array $where=[]): ?object {
         if($this->handler)
-            return $this->handler::getByCredentials($identity, $password);
+            return $this->handler::getByCredentials($identity, $password, $where);
         return null;
     }
 
