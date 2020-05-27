@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-user',
-    '__version' => '0.4.1',
+    '__version' => '0.5.0',
     '__git' => 'git@github.com:getmim/lib-user.git',
     '__license' => 'MIT',
     '__author' => [
@@ -21,14 +21,17 @@ return [
         ],
         'optional' => [
             [
+                'lib-formatter' => NULL
+            ],
+            [
                 'lib-user-main' => NULL
             ],
             [
                 'lib-user-auth-cookie' => NULL,
-                'lib-user-auth-basic'  => NULL,
-                'lib-user-auth-oauth'  => NULL,
+                'lib-user-auth-basic' => NULL,
+                'lib-user-auth-oauth' => NULL,
                 'lib-user-auth-oauth2' => NULL,
-                'lib-user-auth-jwt'    => NULL
+                'lib-user-auth-jwt' => NULL
             ]
         ]
     ],
@@ -58,15 +61,17 @@ return [
     ],
     'libEnum' => [
         'enums' => [
-            'user.status' => [
-                'Deleted',
-                'Suspended',
-                'Unverified',
-                'Verified'
-            ]
+            'user.status' => ['Deleted','Suspended','Unverified','Verified']
         ]
     ],
     'libFormatter' => [
+        'handlers' => [
+            'user' => [
+                'handler' => 'LibUser\\Library\\Format::user',
+                'collective' => TRUE,
+                'field' => NULL
+            ]
+        ],
         'formats' => [
             'user' => [
                 'id' => [

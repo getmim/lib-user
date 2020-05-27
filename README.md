@@ -33,7 +33,7 @@ aplikasi dengan perintah `$this->user->{method|property}`.
 Service user memilki beberapa method sebagai berikut:
 
 ### getAuthorizer(): ?string
-### getByCredentials(string $identity, string $password): ?object
+### getByCredentials(string $identity, string $password, array $where=[]): ?object
 ### getById(string $identity): ?object
 ### getHandler(): ?string
 ### getSession(): ?object
@@ -65,11 +65,12 @@ return [
 
 User handler harus memiliki method-method sebagai berikut:
 
-### getByCredentials(string $identity, string $password): ?object
+### getByCredentials(string $identity, string $password, array $where=[]): ?object
 
 Mengambil data user berdasarkan nama user ( email, phone, atau identitas lain ) dengan
 password. Object user yang dikembalikan harus sama dengan struktur yang dikembalkan oleh
-method `getById`.
+method `getById`. Tambahan property `$where` untuk menambah kondisi where pada saat mencari
+user.
 
 ### getById(string $identity): ?object
 
@@ -177,3 +178,14 @@ sedang login. Masing-masing authorizer mungkin mengembalikan data array yang ber
 ### logout(): void
 
 Fungsi untuk menghilangkan session/token.
+
+## Formatter
+
+Module ini menambah satu type format dengan nama `user` untuk memformat field user menjadi
+object user.
+
+```php
+'field' => [
+    'type' => 'user'
+]
+```
