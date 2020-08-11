@@ -189,3 +189,16 @@ object user.
     'type' => 'user'
 ]
 ```
+
+## Events
+
+### user:identified
+
+Event ini dipanggil setiap kali user yang sedang login melakukan request ke server, dan kontrol
+melakukan pengencekan user login. Data yang dikirimkan melalui event ini adalah object user yang
+sedang login.
+
+### user:authorized
+
+Event ini harus dipanggil oleh handler dengan data object user yang sedang login setiap kalo user
+berhasil login, dan hanya pada proses login.

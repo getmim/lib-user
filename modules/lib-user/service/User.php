@@ -7,6 +7,8 @@
 
 namespace LibUser\Service;
 
+use LibEvent\Library\Event;
+
 class User extends \Mim\Service
 {
 
@@ -60,6 +62,10 @@ class User extends \Mim\Service
                 $this->_locale = $this->_user->language;
                 \LibLocale\Library\Locale::setLocale($this->_user->language);
             }
+
+            // call event 'user:identified'
+            if(module_exists('lib-event'))
+                Event::trigger('user:identified', $this->_user);
         }
     }
 
