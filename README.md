@@ -200,5 +200,9 @@ sedang login.
 
 ### user:authorized
 
-Event ini harus dipanggil oleh handler dengan data object user yang sedang login setiap kalo user
+Event ini harus dipanggil oleh handler dengan data user id user yang sedang login setiap kali user
 berhasil login, dan hanya pada proses login.
+
+### user:deauthorized
+
+Event ini dipanggil setiap kali user yang sedang login melakukan logout.

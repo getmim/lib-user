@@ -122,6 +122,9 @@ class User extends \Mim\Service
     }
 
     public function logout(): void{
+        if($this->_user && module_exists('lib-event'))
+            Event::trigger('user:identified', $this->_user);
+
         if($this->authorizer)
             $this->authorizer::logout();
     }
