@@ -101,7 +101,7 @@ status | description
 
 Jika properti `timezone` di-set, maka system timezone akan disesuaikan dengan nilai tersebut.
 
-### getMany(array $where): ?array
+### getMany(array $where, int $rpp=0, int $page=1, $order=[]): ?array
 
 Mengambil beberapa user dengan kondisi wheer sama persis dengan kondisi where model.
 

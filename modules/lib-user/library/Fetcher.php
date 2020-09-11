@@ -16,7 +16,7 @@ class Fetcher
         return $handler::count($where);
     }
 
-    static function get($where, int $rpp=0, int $page=1, array $order=[‘id’=>false]): ?array{
+    static function get($where, int $rpp=0, int $page=1, array $order=['id'=>false]): ?array{
         $handler = \Mim::$app->user->getHandler();
         if(!$handler)
             return null;
