@@ -16,11 +16,11 @@ class Fetcher
         return $handler::count($where);
     }
 
-    static function get($where): ?array{
+    static function get($where, int $rpp=0, int $page=1, array $order=[‘id’=>false]): ?array{
         $handler = \Mim::$app->user->getHandler();
         if(!$handler)
             return null;
-        return $handler::getMany($where);
+        return $handler::getMany($where, $rpp, $page, $order);
     }
 
     static function getOne($where): ?object{

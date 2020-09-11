@@ -16,7 +16,7 @@ interface Handler
 
     static function getById(string $identity): ?object;
 
-    static function getMany(array $where): ?array;
+    static function getMany(array $where, int $rpp=0, int $page=1, array $order=[]): ?array;
     
     static function getOne(array $where): ?object;
 
