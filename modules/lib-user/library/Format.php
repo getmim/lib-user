@@ -42,6 +42,6 @@ class Format
         if(!$rows)
             return [];
 
-        return Formatter::formatMany('user', $rows, [], 'id');
+        return Formatter::formatMany('user', $rows, $options, 'id');
     }
 }
