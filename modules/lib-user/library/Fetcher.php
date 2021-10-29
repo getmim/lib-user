@@ -9,14 +9,6 @@ namespace LibUser\Library;
 
 class Fetcher
 {
-    static function create(array $data): ?int
-    {
-        $handler = \Mim::$app->user->getHandler();
-        if(!$handler)
-            return null;
-        return $handler::create($data);
-    }
-
     static function count(array $where=[]): ?int{
         $handler = \Mim::$app->user->getHandler();
         if(!$handler)
