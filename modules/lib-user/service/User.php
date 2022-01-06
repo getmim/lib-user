@@ -75,6 +75,10 @@ class User extends \Mim\Service
         return $this->_user->$name ?? null;
     }
 
+    public function __isset($name) {
+        return isset($this->_user->$name);
+    }
+
     public function getAuthorizer(): ?string{
         return $this->authorizer;
     }
