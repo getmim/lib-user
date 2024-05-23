@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-user',
-    '__version' => '1.4.0',
+    '__version' => '1.4.1',
     '__git' => 'git@github.com:getmim/lib-user.git',
     '__license' => 'MIT',
     '__author' => [
@@ -68,6 +68,11 @@ return [
         'handlers' => [
             'user' => [
                 'handler' => 'LibUser\\Library\\Format::user',
+                'collective' => TRUE,
+                'field' => NULL
+            ],
+            'user-minimal' => [
+                'handler' => 'LibUser\\Library\\Format::userMinimal',
                 'collective' => TRUE,
                 'field' => NULL
             ]
