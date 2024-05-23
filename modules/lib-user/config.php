@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'lib-user',
-    '__version' => '1.3.0',
+    '__version' => '1.4.0',
     '__git' => 'git@github.com:getmim/lib-user.git',
     '__license' => 'MIT',
     '__author' => [
@@ -73,6 +73,26 @@ return [
             ]
         ],
         'formats' => [
+            'user-minimal' => [
+                '@rest' => [
+                    'type' => 'delete'
+                ],
+                'id' => [
+                    'type' => 'number'
+                ],
+                'name' => [
+                    'type' => 'text'
+                ],
+                'fullname' => [
+                    'type' => 'text'
+                ],
+                'updated' => [
+                    'type' => 'date'
+                ],
+                'created' => [
+                    'type' => 'date'
+                ]
+            ],
             'user' => [
                 'id' => [
                     'type' => 'number'
